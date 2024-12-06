@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "85b9fa53-6e9c-420d-9ace-148f591faafa",
+		"name": "spring_mongodb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4904193",
+		"_collection_link": "https://winter-spaceship-825022.postman.co/workspace/LLM~3d2d6e34-bbb8-4633-bdb2-2f989905cd10/collection/4904193-85b9fa53-6e9c-420d-9ace-148f591faafa?action=share&source=collection_link&creator=4904193"
+	},
+	"item": [
+		{
+			"name": "Find the Answer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/search?query=llm&topK=3&similarityThreshold=0.8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "llm"
+						},
+						{
+							"key": "topK",
+							"value": "3"
+						},
+						{
+							"key": "similarityThreshold",
+							"value": "0.8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"document_request\":\n    {\n   content: \"llms are good for generative AI usecases\",\n\n   metadata: { \"author\" : \"Thomas Edison\",\n                \"type\": \"post\"}\n    \n\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/add-docs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"add-docs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rag/healthcheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rag",
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

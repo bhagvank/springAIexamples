@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  my-mongodb:
+    image: mongodb/mongodb-atlas-local:7.0.9
+    container_name: rag-mongodb
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=raguser
+      - MONGODB_INITDB_ROOT_PASSWORD=raguser
+    ports:
+      - 27017:27017
